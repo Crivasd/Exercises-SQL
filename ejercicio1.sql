@@ -80,4 +80,5 @@ ADD CONSTRAINT id
 FOREIGN KEY (id)
 REFERENCES Productos(id)
 
+--HOLA
 --Ejercicio 20. Realizar una consulta que muestre los nombres de los clientes, los nombres de los productos y las cantidades de los pedidos donde coincida la clave externa.
