@@ -80,5 +80,9 @@ ADD CONSTRAINT id
 FOREIGN KEY (id)
 REFERENCES Productos(id)
 
---HOLA
 --Ejercicio 20. Realizar una consulta que muestre los nombres de los clientes, los nombres de los productos y las cantidades de los pedidos donde coincida la clave externa.
+SELECT clientes.nombre, productos.nombre, pedidos.cantidad FROM clientes
+LEFT JOIN productos
+ON clientes.id = productos.id
+LEFT JOIN pedidos
+ON productos.id = pedidos.cliente_id
