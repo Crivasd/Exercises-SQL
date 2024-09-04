@@ -14,16 +14,19 @@ ORDER BY "customer_id" DESC
 LIMIT 10
 
 -- 2.3. Encuentra lo que costó el antepenúltimo alquiler ordenado por día.
-SELECT "payment_date",
-       "amount"
+SELECT "payment_id",
+       "amount",
+       "payment_date"
 FROM payment
-LIMIT 1 OFFSET 3
+ORDER BY "payment_date" DESC
+LIMIT 1 
+OFFSET 2
 
 -- 2.4. Qué películas se alquilan por encima del precio medio. Para este ejercicio tendrás que generar dos queries diferentes. Una primera para calcular la media y la segunda para obtener las películas que se alquilan por encima de ese valor.
 SELECT "title",
-	   "rental_rate"
+       "rental_rate"
 FROM film
-WHERE "rental_rate" > (SELECT ROUND(AVG("rental_rate"),1)
+WHERE "rental_rate" >= (SELECT ROUND(AVG("rental_rate"),1)
 	                   FROM film)
 ORDER BY "rental_rate" DESC
 
